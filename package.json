@@ -1,0 +1,22 @@
+{
+  "name": "hcip-libs",
+  "version": "1.0.0",
+  "description": "libraries for hcip-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdcgi/hcip-libs.git"
+  },
+  "keywords": [
+    "hcip"
+  ],
+  "author": "rijal.asep.nugroho@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdcgi/hcip-libs/issues"
+  },
+  "homepage": "https://github.com/cdcgi/hcip-libs#readme"
+}
