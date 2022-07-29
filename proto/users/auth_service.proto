@@ -1,0 +1,20 @@
+syntax = "proto3";
+package hcip.users;
+
+option go_package = "pb/users;users";
+
+import "users/auth_message.proto";
+import "users/generic_message.proto";
+import "users/access_message.proto";
+import "users/user_message.proto";
+
+service AuthService {
+  rpc Login(LoginInput) returns (LoginResponse) {}
+  rpc ForgotPassword(ForgotPasswordInput) returns (Message) {}
+  rpc ChangePassword(ChangePasswordInput) returns (Message) {}
+  rpc ResetPassword(ResetPasswordInput) returns (Message) {}
+  rpc GrantAccess(GroupAccess) returns (Message) {}
+  rpc RevokeAccess(GroupAccess) returns (Message) {}
+  rpc IsAuth(Access) returns (MyBoolean) {}
+  rpc GetUserByToken(MyEmpty) returns (User) {}
+}

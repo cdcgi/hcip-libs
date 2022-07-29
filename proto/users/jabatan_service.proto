@@ -1,0 +1,15 @@
+syntax = "proto3";
+package hcip.users;
+
+option go_package = "pb/users;users";
+
+import "users/jabatan_message.proto";
+import "users/generic_message.proto";
+
+service JabatanService {
+  rpc Create(JabatanCreateInput) returns (Jabatan) {}
+  rpc Update(JabatanUpdateInput) returns (Jabatan) {}
+  rpc View(Id) returns (Jabatan) {}
+  rpc Delete(Id) returns (MyBoolean) {}
+  rpc List(ListJabatanInput) returns (stream ListJabatanResponse) {}
+}

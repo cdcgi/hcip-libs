@@ -4,7 +4,7 @@
   "description": "libraries for hcip-app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gen": "protoc --proto_path=proto proto/*/*.proto --js_out=import_style=commonjs:./pb --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./pb"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,28 @@
+syntax = "proto3";
+package hcip.users;
+
+option go_package = "pb/users;users";
+
+message MyEmpty {}
+message Id { string id = 1; } 
+message MyString { string mystring = 1; }
+message Message { string message = 1; }
+message MyBoolean { bool boolean = 1; }
+
+enum IsActivedFilter {
+  ALL = 0;
+  ACTIVED = 1;
+  INACTIVED = 2;
+}
+
+message Pagination {
+  enum Sort {
+    ASC = 0;
+    DESC = 1;
+  }
+  uint32 page = 1;
+  int32 limit = 2;
+  string search = 3;
+  string order_by = 4;
+  Sort sort = 5;
+}

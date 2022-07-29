@@ -1,0 +1,47 @@
+syntax = "proto3";
+package hcip.users;
+
+option go_package = "pb/users;users";
+
+import "users/generic_message.proto";
+
+message Jabatan {
+  string id = 1;
+  string jabatan_no = 2;
+  string name = 3;
+  string description = 4;
+  bool is_actived = 5;
+  string created_at =  6;
+  string created_by = 7;
+  string updated_at = 8;
+  string updated_by = 9;
+}
+
+message ListJabatanInput {
+  Pagination pagination = 1;
+  IsActivedFilter is_actived_filter = 2;
+}
+
+message JabatanCreateInput {
+  string name = 1;
+  string description = 2;
+  bool is_actived = 3;
+}
+
+message JabatanUpdateInput {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  bool is_actived = 4;
+}
+
+message JabatanPaginationResponse {
+  Pagination pagination = 1;
+  IsActivedFilter is_actived_filter = 2;
+  uint32 count = 3;
+}
+
+message ListJabatanResponse {
+  JabatanPaginationResponse pagination = 1;
+  Jabatan jabatan = 2; 
+}

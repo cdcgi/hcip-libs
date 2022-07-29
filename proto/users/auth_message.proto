@@ -1,0 +1,43 @@
+syntax = "proto3";
+package hcip.users;
+
+option go_package = "pb/users;users";
+
+import "users/user_message.proto";
+import "users/access_message.proto";
+
+message LoginInput {
+  string username = 1;
+  string password = 2;
+}
+
+message ForgotPasswordInput {
+  string email = 1; 
+}
+
+message ChangePasswordInput {
+  string old_password = 1;
+  string new_password = 2;
+  string re_new_password = 3;
+}
+
+message ResetPasswordInput {
+  string id = 1;
+  string new_password = 2;
+  string re_new_password = 3;
+}
+
+message LoginResponse {
+  string token = 1;
+  User user = 2;
+  Acl acl = 3;
+}
+
+message Acl {
+  repeated Access access = 1;
+}
+
+message GroupAccess {
+  string group_id = 1;
+  Access access = 2;
+}

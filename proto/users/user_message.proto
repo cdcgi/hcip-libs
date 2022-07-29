@@ -1,0 +1,79 @@
+syntax = "proto3";
+package hcip.users;
+
+option go_package = "pb/users;users";
+
+import "users/generic_message.proto";
+import "users/jabatan_message.proto";
+
+message User {
+  string id = 1;
+  string email = 2;
+  string username = 3;
+  string name = 4;
+  Jabatan jabatan = 5;
+  bool is_actived = 6;
+  bool is_verified_email = 7;
+  string created_at =  8;
+  string created_by = 9;
+  string updated_at = 10;
+  string updated_by = 11;
+}
+
+message Users {
+  repeated User user = 1;
+}
+
+message ListUserInput {
+  Pagination pagination = 1;
+  IsActivedFilter is_actived_filter = 2;
+  repeated string jabatan_ids = 3;
+  repeated string group_ids = 4;
+}
+
+message EmailVerifiedInput {
+  string id = 1;
+}
+
+message RegisterInput {
+  string name = 1;
+  string email = 2;
+  string username = 3;
+  string jabatan_id = 4;
+  string password = 5;
+  string re_password = 6;
+}
+
+message UserCreateInput {
+  string name = 1;
+  string email = 2;
+  string username = 3;
+  string jabatan_id = 4;
+  repeated string group_id = 5;
+  bool is_actived = 6;
+}
+
+message UserCreateInputs {
+  repeated UserCreateInput user_bulk_create = 1;
+}
+
+message UserUpdateInput {
+  string id = 1;
+  string name = 2;
+  string jabatan_id = 3;
+  repeated string group_id = 4;
+  bool is_actived = 5;
+}
+
+message UserPaginationResponse {
+  Pagination pagination = 1;
+  IsActivedFilter is_actived_filter = 2;
+  repeated string jabatan_ids = 3;
+  repeated string group_ids = 4;
+  uint32 count = 5;
+}
+
+message ListUserResponse {
+  UserPaginationResponse pagination = 1;
+  User user = 2; 
+}

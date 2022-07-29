@@ -1,0 +1,15 @@
+syntax = "proto3";
+package hcip.users;
+
+option go_package = "pb/users;users";
+
+message Access {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string created_at =  4;
+}
+
+message ListAccessResponse {
+  Access access = 1; 
+}

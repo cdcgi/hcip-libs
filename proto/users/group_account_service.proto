@@ -1,0 +1,15 @@
+syntax = "proto3";
+package hcip.users;
+
+option go_package = "pb/users;users";
+
+import "users/group_account_message.proto";
+import "users/generic_message.proto";
+
+service GroupAccountService {
+  rpc Create(GroupAccountCreateInput) returns (GroupAccount) {}
+  rpc Update(GroupAccountUpdateInput) returns (GroupAccount) {}
+  rpc View(Id) returns (GroupAccount) {}
+  rpc Delete(Id) returns (MyBoolean) {}
+  rpc List(ListGroupAccountInput) returns (stream ListGroupAccountResponse) {}
+}

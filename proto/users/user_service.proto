@@ -1,0 +1,18 @@
+syntax = "proto3";
+package hcip.users;
+
+option go_package = "pb/users;users";
+
+import "users/user_message.proto";
+import "users/generic_message.proto";
+
+service UserService {
+  rpc Create(UserCreateInput) returns (User) {}
+  rpc Update(UserUpdateInput) returns (User) {}
+  rpc View(Id) returns (User) {}
+  rpc Delete(Id) returns (MyBoolean) {}
+  rpc List(ListUserInput) returns (stream ListUserResponse) {}
+  rpc BulkCreate(UserCreateInputs) returns (Message) {}
+  rpc Registration(RegisterInput) returns (Message) {}
+  rpc EmailVerification(EmailVerifiedInput) returns (Message) {}
+}
