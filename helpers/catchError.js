@@ -1,7 +1,7 @@
 import { notification } from 'antd'
-import { LocalStorage } from 'hcip-libs-tmp'
+import { LocalStorage } from './LocalStorage'
 
-const catchError = e => {
+const catchError = (e, HOST_URL) => {
   if (e.code == 16) {
     notification.error({message: 'token expired, please re login'})
     LocalStorage.clearStorage()
