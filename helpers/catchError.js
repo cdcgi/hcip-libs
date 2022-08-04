@@ -1,5 +1,5 @@
 import { notification } from 'antd'
-import { LocalStorage } from './LocalStorage'
+import * as LocalStorage from './LocalStorage'
 
 const catchError = (e, HOST_URL) => {
   if (e.code == 16) {
