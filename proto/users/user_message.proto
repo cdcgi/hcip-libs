@@ -12,12 +12,13 @@ message User {
   string username = 3;
   string name = 4;
   Jabatan jabatan = 5;
-  bool is_actived = 6;
-  bool is_verified_email = 7;
-  string created_at =  8;
-  string created_by = 9;
-  string updated_at = 10;
-  string updated_by = 11;
+  repeated string group_id = 6;
+  bool is_actived = 7;
+  bool is_verified_email = 8;
+  string created_at =  9;
+  string created_by = 10;
+  string updated_at = 11;
+  string updated_by = 12;
 }
 
 message Users {

@@ -1,3 +1,3 @@
 import { LocalStorage } from "./helpers";
 
-export { LocalStorage };
+export { LocalStorage, formFailedSubmit, camelCaseToSnakeCase, catchError };
