@@ -33,8 +33,10 @@ message QuestionDetail {
 
 message ListQuestionInput {
   Pagination pagination = 1;
-  string alat_test_id = 2;
-  string sub_test_id = 3;
+  string jabatan_id = 2;
+  string alat_test_id = 3;
+  string sub_test_id = 4;
+  string format = 5;
 }
 
 message QuestionCreateInput {
