@@ -1,0 +1,53 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/generic_message.proto";
+import "tests/alat_test_message.proto";
+
+message SubTest {
+  string id = 1;
+  string sub_test_no = 2;
+  string title = 3;
+  AlatTest alat_test = 4;
+  uint32 prioritas = 5;  
+  bool is_actived = 6;
+  string created_at = 7;
+  string created_by = 8;
+  string updated_at = 9;
+  string updated_by = 10;
+}
+
+message ListSubTestInput {
+  Pagination pagination = 1;
+  IsActivedFilter is_actived_filter = 2;
+  string alat_test_id = 3;
+}
+
+message SubTestCreateInput {
+  string title = 1;
+  string alat_test_id = 2;
+  bool is_actived = 3;
+  uint32 prioritas = 4;
+}
+
+message SubTestUpdateInput {
+  string id = 1;
+  string title = 2;
+  string alat_test_id = 3;
+  bool is_actived = 4;
+  uint32 prioritas = 5;
+}
+
+message SubTestPaginationResponse {
+  Pagination pagination = 1;
+  IsActivedFilter is_actived_filter = 2;
+  string alat_test_id = 3;
+  uint32 count = 4;
+}
+
+message ListSubTestResponse {
+  SubTestPaginationResponse pagination = 1;
+  SubTest sub_test = 2; 
+}

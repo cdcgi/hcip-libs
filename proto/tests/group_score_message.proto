@@ -1,0 +1,81 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/generic_message.proto";
+import "tests/alat_test_message.proto";
+import "tests/sub_test_message.proto";
+
+message GroupScore {
+  string id = 1;
+  string group_score_no = 2;
+  string jenis = 3;
+  AlatTest alat_test = 4;
+  SubTest sub_test = 5;
+  uint32 score_kelulusan = 6;
+  string created_at = 7;
+  string created_by = 8;
+  string updated_at = 9;
+  string updated_by = 10;
+  repeated GroupScoreDetail group_score_detail = 11; 
+}
+
+message GroupScoreDetail {
+  string id = 1;
+  uint32 score1 = 2;
+  uint32 score2 = 3; 
+  string interpretasi = 4;
+  string interpretasi_pengembangan_diri = 5;
+  string created = 6;
+}
+
+message ListGroupScoreInput {
+  Pagination pagination = 1;
+  string alat_test_id = 2;
+  string sub_test_id = 3;
+}
+
+message GroupScoreCreateInput {
+  string jenis = 1;
+  string alat_test_id = 2;
+  string sub_test_id = 3;
+  uint32 skor_kelulusan = 4;
+  repeated GroupScoreDetailCreateInput group_score_detail = 5; 
+}
+
+message GroupScoreDetailCreateInput {
+  uint32 score1 = 1;
+  uint32 score2 = 2; 
+  string interpretasi = 3;
+  string interpretasi_pengembangan_diri = 4;
+}
+
+message GroupScoreUpdateInput {
+  string id = 1;
+  string jenis = 2;
+  string alat_test_id = 3;
+  string sub_test_id = 4;
+  uint32 skor_kelulusan = 5;
+  repeated GroupScoreDetailUpdateInput group_score_detail = 6;
+}
+
+message GroupScoreDetailUpdateInput {
+  string id = 1;
+  uint32 score1 = 2;
+  uint32 score2 = 3; 
+  string interpretasi = 4;
+  string interpretasi_pengembangan_diri = 5;
+}
+
+message GroupScorePaginationResponse {
+  Pagination pagination = 1;
+  string alat_test_id = 2;
+  string sub_test_id = 3;
+  uint32 count = 4;
+}
+
+message ListGroupScoreResponse {
+  GroupScorePaginationResponse pagination = 1;
+  GroupScore group_score = 2; 
+}

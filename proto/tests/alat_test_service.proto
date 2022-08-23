@@ -1,0 +1,14 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/alat_test_message.proto";
+import "tests/generic_message.proto";
+
+service AlatTestService {
+  rpc Create(AlatTestCreateInput) returns (AlatTest) {}
+  rpc Update(AlatTestUpdateInput) returns (AlatTest) {}
+  rpc View(Id) returns (AlatTest) {}
+  rpc List(ListAlatTestInput) returns (stream ListAlatTestResponse) {}
+}

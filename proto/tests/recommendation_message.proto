@@ -1,0 +1,68 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/generic_message.proto";
+import "tests/group_score_message.proto";
+
+message Recommendation {
+  string id = 1;
+  string recommendation_no = 2;
+  string created_at = 3;
+  string created_by = 4;
+  string updated_at = 5;
+  string updated_by = 6;
+  repeated RecommendationDetail recommendation_detail = 7; 
+  repeated string jabatan_id = 8;
+}
+
+message RecommendationDetail {
+  string id = 1;
+  GroupScore group_score = 2;
+  uint32 score1 = 3; 
+  uint32 score2 = 4;
+  string interpretasi = 5;
+}
+
+message ListRecommendationInput {
+  Pagination pagination = 1;
+  repeated string jabatan_id = 2;
+}
+
+message RecommendationCreateInput {
+  repeated string jabatan_id = 1;
+  repeated RecommendationDetailCreateInput recommendation_detail = 2; 
+}
+
+message RecommendationDetailCreateInput {
+  string group_score_id = 1;
+  uint32 score1 = 2; 
+  uint32 score2 = 3;
+  string interpretasi = 4;
+}
+
+message RecommendationUpdateInput {
+  string id = 1;
+  repeated string jabatan_id = 2;
+  repeated RecommendationDetailUpdateInput recommendation_detail = 3;
+}
+
+message RecommendationDetailUpdateInput {
+  string id = 1;
+  string group_score_id = 2;
+  uint32 score1 = 3; 
+  uint32 score2 = 4;
+  string interpretasi = 5;
+}
+
+message RecommendationPaginationResponse {
+  Pagination pagination = 1;
+  repeated string jabatan_id = 2;
+  uint32 count = 3;
+}
+
+message ListRecommendationResponse {
+  RecommendationPaginationResponse pagination = 1;
+  Recommendation recommendation = 2; 
+}

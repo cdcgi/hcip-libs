@@ -1,0 +1,15 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/group_score_message.proto";
+import "tests/generic_message.proto";
+
+service GroupScoreService {
+  rpc Create(GroupScoreCreateInput) returns (GroupScore) {}
+  rpc Update(GroupScoreUpdateInput) returns (GroupScore) {}
+  rpc View(Id) returns (GroupScore) {}
+  rpc Delete(Id) returns (Message) {}
+  rpc List(ListGroupScoreInput) returns (stream ListGroupScoreResponse) {}
+}

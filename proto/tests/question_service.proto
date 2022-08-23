@@ -1,0 +1,15 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/question_message.proto";
+import "tests/generic_message.proto";
+
+service QuestionService {
+  rpc Create(QuestionCreateInput) returns (Question) {}
+  rpc Update(QuestionUpdateInput) returns (Question) {}
+  rpc View(Id) returns (Question) {}
+  rpc Delete(Id) returns (Message) {}
+  rpc List(ListQuestionInput) returns (stream ListQuestionResponse) {}
+}

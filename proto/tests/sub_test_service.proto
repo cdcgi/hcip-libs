@@ -1,0 +1,14 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/sub_test_message.proto";
+import "tests/generic_message.proto";
+
+service SubTestService {
+  rpc Create(SubTestCreateInput) returns (SubTest) {}
+  rpc Update(SubTestUpdateInput) returns (SubTest) {}
+  rpc View(Id) returns (SubTest) {}
+  rpc List(ListSubTestInput) returns (stream ListSubTestResponse) {}
+}

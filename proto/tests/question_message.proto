@@ -1,0 +1,86 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/generic_message.proto";
+import "tests/alat_test_message.proto";
+import "tests/sub_test_message.proto";
+
+message Question {
+  string id = 1;
+  string soal_no = 2;
+  AlatTest alat_test = 3;
+  SubTest sub_test = 4;
+  string format = 5;
+  uint32 urutan = 6;  
+  string file_soal = 7;
+  string pilihan = 8;
+  string created_at = 9;
+  string created_by = 10;
+  string updated_at = 11;
+  string updated_by = 12;
+  repeated QuestionDetail question_detail = 13; 
+}
+
+message QuestionDetail {
+  string id = 1;
+  string answer = 2;
+  string description = 3; 
+  string input_text = 4;
+  uint32 bobot = 5;
+}
+
+message ListQuestionInput {
+  Pagination pagination = 1;
+  string alat_test_id = 2;
+  string sub_test_id = 3;
+}
+
+message QuestionCreateInput {
+  string alat_test_id = 1;
+  string sub_test_id = 2;
+  string format = 3;
+  uint32 urutan = 4;  
+  string file_soal = 5;
+  string pilihan = 6;
+  repeated QuestionDetailCreateInput question_detail = 7; 
+}
+
+message QuestionDetailCreateInput {
+  string answer = 1;
+  string description = 2; 
+  string input_text = 3;
+  uint32 bobot = 4;
+}
+
+message QuestionUpdateInput {
+  string id = 1;
+  string alat_test_id = 2;
+  string sub_test_id = 3;
+  string format = 4;
+  uint32 urutan = 5;  
+  string file_soal = 6;
+  string pilihan = 7;
+  repeated QuestionDetailUpdateInput question_detail = 8;
+}
+
+message QuestionDetailUpdateInput {
+  string id = 1;
+  string answer = 2;
+  string description = 3; 
+  string input_text = 4;
+  uint32 bobot = 5;
+}
+
+message QuestionPaginationResponse {
+  Pagination pagination = 1;
+  string alat_test_id = 2;
+  string sub_test_id = 3;
+  uint32 count = 4;
+}
+
+message ListQuestionResponse {
+  QuestionPaginationResponse pagination = 1;
+  Question question = 2; 
+}

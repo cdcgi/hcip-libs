@@ -1,0 +1,61 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/generic_message.proto";
+
+message AlatTest {
+  string id = 1;
+  string alat_test_no = 2;
+  string title = 3;
+  string jabatan_id = 4;
+  string jabatan_no = 5;
+  string jabatan_name = 6;
+  uint32 time = 7;
+  uint32 soal = 8;
+  uint32 urutan = 9;
+  uint32 prioritas = 10;  
+  bool is_actived = 11;
+  string created_at = 12;
+  string created_by = 13;
+  string updated_at = 14;
+  string updated_by = 15;
+}
+
+message ListAlatTestInput {
+  Pagination pagination = 1;
+  IsActivedFilter is_actived_filter = 2;
+}
+
+message AlatTestCreateInput {
+  string title = 1;
+  string jabatan_id = 2;
+  bool is_actived = 3;
+  uint32 time = 4;
+  uint32 soal = 5;
+  uint32 urutan = 6;
+  uint32 prioritas = 7;
+}
+
+message AlatTestUpdateInput {
+  string id = 1;
+  string title = 2;
+  string jabatan_id = 3;
+  bool is_actived = 4;
+  uint32 time = 5;
+  uint32 soal = 6;
+  uint32 urutan = 7;
+  uint32 prioritas = 8;
+}
+
+message AlatTestPaginationResponse {
+  Pagination pagination = 1;
+  IsActivedFilter is_actived_filter = 2;
+  uint32 count = 3;
+}
+
+message ListAlatTestResponse {
+  AlatTestPaginationResponse pagination = 1;
+  AlatTest alat_test = 2; 
+}
