@@ -25,9 +25,10 @@ message GroupScoreDetail {
   string id = 1;
   uint32 score1 = 2;
   uint32 score2 = 3; 
-  string interpretasi = 4;
-  string interpretasi_pengembangan_diri = 5;
-  string created = 6;
+  string group_score = 4;
+  string interpretasi = 5;
+  string interpretasi_pengembangan_diri = 6;
+  string created = 7;
 }
 
 message ListGroupScoreInput {
@@ -47,8 +48,9 @@ message GroupScoreCreateInput {
 message GroupScoreDetailCreateInput {
   uint32 score1 = 1;
   uint32 score2 = 2; 
-  string interpretasi = 3;
-  string interpretasi_pengembangan_diri = 4;
+  string group_score = 3;
+  string interpretasi = 4;
+  string interpretasi_pengembangan_diri = 5;
 }
 
 message GroupScoreUpdateInput {
@@ -64,8 +66,9 @@ message GroupScoreDetailUpdateInput {
   string id = 1;
   uint32 score1 = 2;
   uint32 score2 = 3; 
-  string interpretasi = 4;
-  string interpretasi_pengembangan_diri = 5;
+  string group_score = 4;
+  string interpretasi = 5;
+  string interpretasi_pengembangan_diri = 6;
 }
 
 message GroupScorePaginationResponse {

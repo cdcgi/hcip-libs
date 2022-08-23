@@ -4,7 +4,6 @@ package hcip.tests;
 option go_package = "pb/tests;tests";
 
 import "tests/generic_message.proto";
-import "tests/group_score_message.proto";
 
 message Recommendation {
   string id = 1;
@@ -19,7 +18,7 @@ message Recommendation {
 
 message RecommendationDetail {
   string id = 1;
-  GroupScore group_score = 2;
+  string group_score = 2;
   uint32 score1 = 3; 
   uint32 score2 = 4;
   string interpretasi = 5;
@@ -36,7 +35,7 @@ message RecommendationCreateInput {
 }
 
 message RecommendationDetailCreateInput {
-  string group_score_id = 1;
+  string group_score = 1;
   uint32 score1 = 2; 
   uint32 score2 = 3;
   string interpretasi = 4;
@@ -50,7 +49,7 @@ message RecommendationUpdateInput {
 
 message RecommendationDetailUpdateInput {
   string id = 1;
-  string group_score_id = 2;
+  string group_score = 2;
   uint32 score1 = 3; 
   uint32 score2 = 4;
   string interpretasi = 5;
