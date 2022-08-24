@@ -26,6 +26,7 @@ message AlatTest {
 message ListAlatTestInput {
   Pagination pagination = 1;
   IsActivedFilter is_actived_filter = 2;
+  string jabatan_id = 3;
 }
 
 message AlatTestCreateInput {
@@ -52,7 +53,8 @@ message AlatTestUpdateInput {
 message AlatTestPaginationResponse {
   Pagination pagination = 1;
   IsActivedFilter is_actived_filter = 2;
-  uint32 count = 3;
+  string jabatan_id = 3;
+  uint32 count = 4;
 }
 
 message ListAlatTestResponse {
