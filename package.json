@@ -1,6 +1,6 @@
 {
   "name": "hcip-libs",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "description": "libraries for hcip-app",
   "main": "index.js",
   "scripts": {

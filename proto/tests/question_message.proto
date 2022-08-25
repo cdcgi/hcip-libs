@@ -15,12 +15,13 @@ message Question {
   string format = 5;
   uint32 urutan = 6;  
   string file_soal = 7;
-  string pilihan = 8;
-  string created_at = 9;
-  string created_by = 10;
-  string updated_at = 11;
-  string updated_by = 12;
-  repeated QuestionDetail question_detail = 13; 
+  string file_url = 8;
+  string pilihan = 9;
+  string created_at = 10;
+  string created_by = 11;
+  string updated_at = 12;
+  string updated_by = 13;
+  repeated QuestionDetail question_detail = 14;
 }
 
 message QuestionDetail {
@@ -77,9 +78,11 @@ message QuestionDetailUpdateInput {
 
 message QuestionPaginationResponse {
   Pagination pagination = 1;
-  string alat_test_id = 2;
-  string sub_test_id = 3;
-  uint32 count = 4;
+  string jabatan_id = 2;
+  string alat_test_id = 3;
+  string sub_test_id = 4;
+  string format = 5;
+  uint32 count = 6;
 }
 
 message ListQuestionResponse {
