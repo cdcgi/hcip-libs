@@ -33,5 +33,6 @@ export function setAcl(acl) {
 export function clearStorage() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
+  localStorage.removeItem("jabatan");
   localStorage.removeItem("acl");
 }
