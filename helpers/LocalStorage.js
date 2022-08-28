@@ -14,6 +14,14 @@ export function setUser(user) {
   return localStorage.setItem("user", user);
 }
 
+export function getJabatan() {
+  return localStorage.getItem("jabatan") ? localStorage.getItem("jabatan") : undefined;
+}
+
+export function setJabatan(jabatan) {
+  return localStorage.setItem("jabatan", jabatan);
+}
+
 export function getAcl() {
   return localStorage.getItem("acl") ? JSON.parse(localStorage.getItem("acl")) : undefined;
 }
