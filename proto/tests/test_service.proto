@@ -1,0 +1,14 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/test_message.proto";
+import "tests/generic_message.proto";
+
+service TestService {
+  rpc Create(MyEmpty) returns (SimpleTestHeader) {}
+  rpc Answer(AnswerInput) returns (MyBoolean) {}
+  rpc View(Id) returns (TestHeader) {}
+  rpc List(RekapInput) returns (TestHeaders) {}
+}

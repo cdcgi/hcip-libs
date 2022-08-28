@@ -5,6 +5,20 @@ option go_package = "pb/tests;tests";
 
 import "tests/generic_message.proto";
 
+message CleanAlatTest {
+  string id = 1;
+  string alat_test_no = 2;
+  string title = 3;
+  uint32 time = 4;
+  uint32 soal = 5;
+  uint32 urutan = 6;
+  uint32 prioritas = 7; 
+}
+
+message AlatTests {
+  repeated CleanAlatTest alat_test = 1;
+}
+
 message AlatTest {
   string id = 1;
   string alat_test_no = 2;

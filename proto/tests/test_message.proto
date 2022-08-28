@@ -1,0 +1,70 @@
+syntax = "proto3";
+package hcip.tests;
+
+option go_package = "pb/tests;tests";
+
+import "tests/sub_test_message.proto";
+import "tests/alat_test_message.proto";
+
+message TestHeader {
+  string id = 1;
+  string test_no = 2;
+  string user_id = 3;
+  string user_name = 4;
+  string jabatan_id = 5;
+  string jabatan_no = 6;
+  string jabatan_name = 7;
+  string created_at = 8;
+  string group_score = 9;
+  repeated Test tests = 10;
+  string created_by = 11;
+  string updated_at = 12;
+  string updated_by = 13;
+}
+
+message SimpleTestHeader {
+  string id = 1;
+  string test_no = 2;
+}
+
+message Test {
+  string id = 1;
+  AlatTest alat_test = 2;
+  uint32 time = 3;
+  uint32 nilai = 4;
+  uint32 lulus = 5;
+  string group_score = 6;
+  string interpretasi = 7;
+  uint32 no_skor = 8;
+  uint32 prioritas = 9;
+  string created_at = 10;
+  repeated TestDetail test_details = 11;
+}
+
+message TestDetail {
+  string id = 1;
+  SubTest sub_test = 2;
+  uint32 nilai = 3;
+  string group_score = 4;
+  string interpretasi = 5;
+  string interpretasi_pengembangan_diri = 6;
+  uint32 no_skor = 7;
+  uint32 prioritas = 8;
+}
+
+message AnswerInput {
+  string test_header_id = 1;
+  string question_id = 2;
+  string question_detail_id = 3;
+  string input_text = 4;
+}
+
+message TestHeaders {
+  repeated TestHeader test_headers = 1;
+}
+
+message RekapInput {
+  string start_date = 1;
+  string end_data = 2;
+  repeated string jabatan_id = 3;
+}

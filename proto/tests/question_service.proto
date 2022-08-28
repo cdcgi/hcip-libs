@@ -12,4 +12,5 @@ service QuestionService {
   rpc View(Id) returns (Question) {}
   rpc Delete(Id) returns (Message) {}
   rpc List(ListQuestionInput) returns (stream ListQuestionResponse) {}
+  rpc ListByJabatan(Id) returns (Questions) {}
 }

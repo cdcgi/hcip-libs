@@ -7,6 +7,29 @@ import "tests/generic_message.proto";
 import "tests/alat_test_message.proto";
 import "tests/sub_test_message.proto";
 
+message CleanQuestion {
+  string id = 1;
+  uint32 urutan = 2;  
+  string file_url = 3;
+  string pilihan = 4;
+  string jawaban_user = 5;
+  repeated CleanQuestionDetail question_detail = 6;
+}
+
+message CleanQuestionDetail {
+  string id = 1;
+  string answer = 2;
+  string description = 3; 
+  string input_text = 4;
+}
+
+message Questions {
+  string alat_test_id = 1;
+  string alat_test_name = 2;
+  uint32 jawaban_terakhir = 3;
+  repeated CleanQuestion question = 4;
+}
+
 message Question {
   string id = 1;
   string soal_no = 2;

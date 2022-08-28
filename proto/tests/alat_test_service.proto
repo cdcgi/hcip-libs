@@ -11,4 +11,5 @@ service AlatTestService {
   rpc Update(AlatTestUpdateInput) returns (AlatTest) {}
   rpc View(Id) returns (AlatTest) {}
   rpc List(ListAlatTestInput) returns (stream ListAlatTestResponse) {}
+  rpc ListByJabatan(MyEmpty) returns (AlatTests) {}
 }
